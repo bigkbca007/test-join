@@ -3,7 +3,7 @@
 ## Instalação
 - Instalar [composer](https://getcomposer.org/).
 
-No terminal
+No terminal:
 - Excutar *composer install*
 - Criar o banco de dados de acordo com o nome configurado no campo DB_DATABASE no arquivo .env
 - Executar *php artisan migrate* para criar as tabeas.
