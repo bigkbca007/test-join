@@ -53,13 +53,12 @@ class ProdutoController extends Controller
     {
         $produto = new Produto();
         $produto->nome_produto = $request->post('nome_produto');
-        //$produto->valor_produto = $request->post('valor_produto');
-        $produto->valor_produto = $request->post('valor_produto');
+        $produto->valor_produto = str_replace(['.',','], ['','.'], $request->post('valor_produto'));
         $produto->id_categoria_produto = $request->post('id_categoria_produto');
 
         $produto->save();
 
-        return redirect('/produtos')->with('message', 'Produto Cadastrada.');
+        return redirect('/produtos')->with('message', 'Produto Cadastrado.');
     }
 
     /**
@@ -102,12 +101,12 @@ class ProdutoController extends Controller
     {
         $produto = Produto::findOrFail($id);
         $produto->nome_produto = $request->post('nome_produto');
-        $produto->valor_produto = $request->post('valor_produto');
+        $produto->valor_produto = str_replace(['.',','], ['','.'], $request->post('valor_produto'));
         $produto->id_categoria_produto = $request->post('id_categoria_produto');
 
         $produto->save();
 
-        return redirect('/produtos')->with('message', 'Produto Cadastrada.');
+        return redirect('/produtos')->with('message', 'Produto atualizado.');
     }
 
     /**
@@ -118,8 +117,12 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        $produto = Produto::findOrFail($id);
-        $produto->delete();
+        try{
+            $produto = Produto::findOrFail($id);
+            $produto->delete();
+        } catch(\Exception $e){
+            return redirect('/produtos')->with('message', 'Houve um erro ao tenatar remover este item.');    
+        }
 
         return redirect('/produtos')->with('message', 'Produto removido.');
     }

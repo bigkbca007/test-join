@@ -74,7 +74,7 @@ class CategoriasController extends Controller
 
         return view('pages.categorias.create', [
             'categoria' => $categoria,
-            'action' => '/categorias/update/'.$categoria->id_categoria_produto
+            'action' => '/categorias/update/' . $categoria->id_categoria_produto
         ]);
     }
 
@@ -105,10 +105,13 @@ class CategoriasController extends Controller
      */
     public function destroy($id)
     {
-        $categoria = Categoria::findOrFail($id);
-        $categoria->delete();
+        try {
+            $categoria = Categoria::findOrFail($id);
+            $categoria->delete();
+        } catch (\Exception $e) {
+            return redirect('/categorias')->with('message', 'Esta categoria não pode ser removida.');
+        }
 
         return redirect('/categorias')->with('message', 'Categoria removida.');
     }
-
 }
