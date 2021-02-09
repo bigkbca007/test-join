@@ -10,5 +10,6 @@ class Categoria extends Model
     use HasFactory;
 
     protected $table = 'tb_categorias_produtos';
+    protected $primaryKey  = 'id_categoria_produto';
     public $timestamps = false;
 }

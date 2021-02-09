@@ -22,3 +22,6 @@ Route::get('/', function () {
 Route::get('/categorias/add', [CategoriasController::class, 'create']);;
 Route::post('/categorias/store', [CategoriasController::class, 'store']);
 Route::get('/categorias', [CategoriasController::class, 'index']);
+Route::get('/categorias/edit/{id}', [CategoriasController::class, 'edit']);
+Route::post('/categorias/update/{id}', [CategoriasController::class, 'update']);
+Route::delete('/categorias/destroy/{id}', [CategoriasController::class, 'destroy']);

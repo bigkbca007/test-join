@@ -13,8 +13,12 @@
                 {{ $categoria->nome_categoria }}
             </strong>
             <span class="links-lista">
-                <a href="categorias/editar/{{ $categoria->id_categoria_produto }}" class="btn text-info">Editar</a>
-                <a href="categorias/remover/{{ $categoria->id_categoria_produto }}" class="btn text-danger">Remover</a>
+                <a href="categorias/edit/{{ $categoria->id_categoria_produto }}" class="btn btn-outline-info">Editar</a>
+                <form action="categorias/destroy/{{ $categoria->id_categoria_produto }}" method="POST" class="form-inline" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-outline-danger">Remover</button>
+                </form>
             </span>
         </li>
         @endforeach

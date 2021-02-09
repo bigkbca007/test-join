@@ -28,7 +28,10 @@ class CategoriasController extends Controller
      */
     public function create()
     {
-        return view('pages.categorias.create');
+        return view('pages.categorias.create', [
+            'categoria' => null,
+            'action' => '/categorias/store'
+        ]);
     }
 
     /**
@@ -67,7 +70,12 @@ class CategoriasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categoria = Categoria::findOrFail($id);
+
+        return view('pages.categorias.create', [
+            'categoria' => $categoria,
+            'action' => '/categorias/update/'.$categoria->id_categoria_produto
+        ]);
     }
 
     /**
@@ -79,7 +87,15 @@ class CategoriasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $categoria = Categoria::findOrFail($id);
+
+        $nome_categoria = $request->post('nome_categoria');
+        $categoria->nome_categoria = $nome_categoria;
+
+        $categoria->save();
+
+        return redirect('/categorias')->with('message', 'Categoria alterada.');
+
     }
 
     /**
@@ -90,6 +106,9 @@ class CategoriasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $categoria = Categoria::findOrFail($id);
+        $categoria->delete();
+
+        return redirect('/categorias')->with('message', 'Categoria removida.');
     }
 }
