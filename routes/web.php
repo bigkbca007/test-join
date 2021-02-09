@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.app');
 });
+
+// Rotas para categorias
+Route::get('/categorias/add', [CategoriasController::class, 'create']);;
+Route::post('/categorias/store', [CategoriasController::class, 'store']);
+Route::get('/categorias', [CategoriasController::class, 'index']);
