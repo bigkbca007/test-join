@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Produto;
 use App\Models\Categoria;
+use App\Models\Produto;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ProdutoController extends Controller
@@ -53,6 +53,7 @@ class ProdutoController extends Controller
     {
         $produto = new Produto();
         $produto->nome_produto = $request->post('nome_produto');
+        //$produto->valor_produto = $request->post('valor_produto');
         $produto->valor_produto = $request->post('valor_produto');
         $produto->id_categoria_produto = $request->post('id_categoria_produto');
 
