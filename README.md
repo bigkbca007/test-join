@@ -1,6 +1,7 @@
 <p align="center"><a href="https://jointecnologia.com.br/wp-content/themes/theme-bones-master/library/images/logo-blue.png" width="400"></a></p>
 
 ## Instalação
+- Instalar [composer](https://getcomposer.org/).
 No terminal
 - Excutar *composer install*
 - Criar o banco de dados de acordo com o nome configurado no campo DB_DATABASE no arquivo .env
