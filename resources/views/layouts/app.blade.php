@@ -15,16 +15,20 @@
         body {
             font-family: 'Nunito';
         }
-
-        .style-form {
+        .style-content {
             border: solid 1px #ccc;
             margin-top: 50px;
             padding: 20px;
         }
-
         .head-page {
             margin-top: 20px;
             color: #ababab;
+        }
+        .list-item{
+            padding-left: 25px;
+        }
+        .links-lista{
+            float: right;
         }
     </style>
 
