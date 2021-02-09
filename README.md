@@ -2,6 +2,7 @@
 
 ## Instalação
 - Instalar [composer](https://getcomposer.org/).
+
 No terminal
 - Excutar *composer install*
 - Criar o banco de dados de acordo com o nome configurado no campo DB_DATABASE no arquivo .env
