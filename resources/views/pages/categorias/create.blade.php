@@ -11,9 +11,9 @@
         <input type="hidden" name="id_categoria_produto" value="{{ is_null($categoria) ? 0 : $categoria->id_categoria_produto }}">
         <div class="mb-3">
             <label for="nome_categoria" class="form-label">Nome</label>
-            <input type="text" class="form-control" name="nome_categoria" id="nome_categoria" placeholder="Nomde da categoria"  value="{{ is_null($categoria) ? '' : $categoria->nome_categoria }}">
+            <input type="text" class="form-control" name="nome_categoria" id="nome_categoria" placeholder="Nome da categoria"  value="{{ is_null($categoria) ? '' : $categoria->nome_categoria }}">
         </div>
-        <button type="submit" class="btn btn-primary">Adicionar</button>
+        <button type="submit" class="btn btn-primary">{{ is_null($categoria) ? 'Adicionar' : 'Alterar' }}</button>
     </form>
 </div>
 

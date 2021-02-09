@@ -14,7 +14,7 @@ class CreateTbProdutosTable extends Migration
     public function up()
     {
         Schema::create('tb_produtos', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id_produto');
             $table->string('nome_produto', 150);
             $table->float('valor_produto', 10, 2);
             $table->timestamps();

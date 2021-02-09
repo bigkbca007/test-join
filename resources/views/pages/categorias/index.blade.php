@@ -14,15 +14,38 @@
             </strong>
             <span class="links-lista">
                 <a href="categorias/edit/{{ $categoria->id_categoria_produto }}" class="btn btn-outline-info">Editar</a>
-                <form action="categorias/destroy/{{ $categoria->id_categoria_produto }}" method="POST" class="form-inline" style="display:inline;">
+                <form action="categorias/destroy/{{ $categoria->id_categoria_produto }}" method="POST" class="form-inline" style="display:inline;" id="form-remover">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-outline-danger">Remover</button>
                 </form>
+                <button class="btn btn-outline-danger" id="bt-remover">Remover</button>
             </span>
         </li>
         @endforeach
     </ul>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="modal-msg" tabindex="-1" aria-labelledby="head-modal-msg" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="head-modal-msg"><span class="text-danger">Atenção!</span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Tem certeza que deseja remover este item?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-outline-primary" onclick="$('#form-remover').submit();">Remover</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('#bt-remover').click(function(e) {
+        $('#modal-msg').modal('show');
+    });
+</script>
 @endsection

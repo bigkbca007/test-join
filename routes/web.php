@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\ProdutoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,11 @@ Route::get('/categorias', [CategoriasController::class, 'index']);
 Route::get('/categorias/edit/{id}', [CategoriasController::class, 'edit']);
 Route::post('/categorias/update/{id}', [CategoriasController::class, 'update']);
 Route::delete('/categorias/destroy/{id}', [CategoriasController::class, 'destroy']);
+
+// Rotas para produto
+Route::get('/produtos/add', [ProdutoController::class, 'create']);;
+Route::post('/produtos/store', [ProdutoController::class, 'store']);
+Route::get('/produtos', [ProdutoController::class, 'index']);
+Route::get('/produtos/edit/{id}', [ProdutoController::class, 'edit']);
+Route::post('/produtos/update/{id}', [ProdutoController::class, 'update']);
+Route::delete('/produtos/destroy/{id}', [ProdutoController::class, 'destroy']);

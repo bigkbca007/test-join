@@ -95,7 +95,6 @@ class CategoriasController extends Controller
         $categoria->save();
 
         return redirect('/categorias')->with('message', 'Categoria alterada.');
-
     }
 
     /**
@@ -111,4 +110,5 @@ class CategoriasController extends Controller
 
         return redirect('/categorias')->with('message', 'Categoria removida.');
     }
+
 }
